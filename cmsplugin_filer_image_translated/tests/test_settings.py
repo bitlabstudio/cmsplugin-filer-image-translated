@@ -20,6 +20,7 @@ DATABASES = {
 
 LANGUAGES = [
     ('en', gettext('English')),
+    ('de', gettext('German')),
 ]
 
 # just so that we have a login url to redirect to. In the real application,
@@ -65,17 +66,21 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+#     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'cms.middleware.multilingual.MultilingualURLMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware',
+#     'cms.middleware.page.CurrentPageMiddleware',
+#     'cms.middleware.user.CurrentUserMiddleware',
+#     'cms.middleware.toolbar.ToolbarMiddleware',
+#     'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 EXTERNAL_APPS = [
-    'djangocms_text_ckeditor',
+#     'djangocms_text_ckeditor',
     'cms',
     'mptt',
     'sekizai',
@@ -91,11 +96,11 @@ EXTERNAL_APPS = [
     'django.contrib.sites',
     'django_nose',
     'filer',
-    'cmsplugin_filer_file',
-    'cmsplugin_filer_folder',
-    'cmsplugin_filer_image',
-    'cmsplugin_filer_teaser',
-    'cmsplugin_filer_video',
+#     'cmsplugin_filer_file',
+#     'cmsplugin_filer_folder',
+#     'cmsplugin_filer_image',
+#     'cmsplugin_filer_teaser',
+#     'cmsplugin_filer_video',
     'easy_thumbnails',
 ]
 
