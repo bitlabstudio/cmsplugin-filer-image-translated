@@ -6,8 +6,10 @@
 django==1.4.3
 django-cms==2.3.5
 django-filer==0.9.3
+cmsplugin-filer==0.9.3
 simple-translation==0.8.6
 South==0.7.6
+django-hvad==0.3
 
 
 # ==============================================================
