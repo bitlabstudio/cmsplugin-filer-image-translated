@@ -4,7 +4,7 @@ import sys
 
 if __name__ == "__main__":
     os.environ.setdefault(
-        'DJANGO_SETTINGS_MODULE', 'cmsplugin_filer_image_translated.tests.south_settings')  # NOQA
+        'DJANGO_SETTINGS_MODULE', 'cmsplugin_filer_image_translated.settings')  # NOQA
 
     from django.core.management import execute_from_command_line
 

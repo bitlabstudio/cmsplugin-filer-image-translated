@@ -14,9 +14,10 @@ APP_ROOT = os.path.abspath(
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ':memory:',
+        'NAME': 'db.sqlite',
     }
 }
+
 
 LANGUAGES = [
     ('en', gettext('English')),
@@ -66,25 +67,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-#     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'cms.middleware.multilingual.MultilingualURLMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
-#     'cms.middleware.page.CurrentPageMiddleware',
-#     'cms.middleware.user.CurrentUserMiddleware',
-#     'cms.middleware.toolbar.ToolbarMiddleware',
-#     'cms.middleware.language.LanguageCookieMiddleware',
 )
 
-EXTERNAL_APPS = [
-#     'djangocms_text_ckeditor',
-    'cms',
-    'mptt',
-    'sekizai',
-    'menus',
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
@@ -94,14 +85,19 @@ EXTERNAL_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.sites',
-    'django_nose',
+]
+
+EXTERNAL_APPS = [
+    'cms',
+    'cms.plugins.text',
+    'cmsplugin_filer_image',
+    'mptt',
+    'sekizai',
+    'menus',
     'filer',
-#     'cmsplugin_filer_file',
-#     'cmsplugin_filer_folder',
-#     'cmsplugin_filer_image',
-#     'cmsplugin_filer_teaser',
-#     'cmsplugin_filer_video',
     'easy_thumbnails',
+    'south',
+    'hvad',
 ]
 
 INTERNAL_APPS = [
@@ -109,7 +105,7 @@ INTERNAL_APPS = [
     'cmsplugin_filer_image_translated.tests.test_app',
 ]
 
-INSTALLED_APPS = EXTERNAL_APPS + INTERNAL_APPS
+INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + INTERNAL_APPS
 COVERAGE_MODULE_EXCLUDES += EXTERNAL_APPS
 
 SECRET_KEY = 'foobar'
@@ -124,4 +120,7 @@ THUMBNAIL_PROCESSORS = (
     #'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
+
+
+
 )
