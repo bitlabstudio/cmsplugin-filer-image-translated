@@ -1,12 +1,11 @@
 """Models for the ``tagging_translated`` app."""
+from django.db.models.signals import post_save
 from django.db import models
+from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 from filer.models import Image
 from hvad.models import TranslatableModel, TranslatedFields
-
-
-# TODO auto-create/-delete translations with images
 
 
 class ImageTranslation(TranslatableModel):
@@ -49,3 +48,12 @@ class ImageTranslation(TranslatableModel):
 
     def __unicode__(self):
         return u'Translations for {0}'.format(self.image.original_filename)
+
+
+@receiver(post_save, sender=Image)
+def create_image_translation(sender, **kwargs):
+    created = kwargs.get('created')
+    if not created:
+        return
+    instance = kwargs.get('instance')
+    ImageTranslation.objects.create(image=instance)
