@@ -10,6 +10,15 @@ SITE_ID = 1
 APP_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(__file__), '..'))
 
+# This should be the folder name of your Django project
+PROJECT_NAME = 'cmsplugin_filer_image_translated'
+
+# This should be the name of the virtualenv on your local machine and on your
+# servers
+VENV_NAME = PROJECT_NAME
+
+TEST_SETTINGS_PATH = 'cmsplugin_filer_image_translated.settings.test_settings'
+
 
 DATABASES = {
     'default': {

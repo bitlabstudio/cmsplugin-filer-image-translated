@@ -8,3 +8,4 @@ db.sqlite
 dist/
 media/
 app_media/
+local_settings.py
