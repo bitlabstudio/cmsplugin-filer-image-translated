@@ -10,9 +10,9 @@ class Migration(DataMigration):
     def forwards(self, orm):
         "Write your forwards methods here."
         for image in orm['filer.Image'].objects.all():
-            master = orm['cmsplugin_filer_image_translated.ImageTranslation'].objects.create(image=image)
+            master = orm['cmsplugin_filer_image_translated.ImageTranslation'].objects.get_or_create(image=image)[0]
             for old_trans in orm['cmsplugin_filer_image_translated.ImageTranslationRenamed'].objects.filter(image=image):
-                orm['cmsplugin_filer_image_translated.ImageTranslationTranslation'].objects.create(
+                orm['cmsplugin_filer_image_translated.ImageTranslationTranslation'].objects.get_or_create(
                     name=old_trans.trans_name,
                     description=old_trans.trans_description,
                     alt_text=old_trans.trans_alt_text,
@@ -26,7 +26,7 @@ class Migration(DataMigration):
         "Write your backwards methods here."
         for image in orm['filer.Image'].objects.all():
             for trans in orm['cmsplugin_filer_image_translated.ImageTranslation'].objects.all():
-                for trans_trans in trans.translations:
+                for trans_trans in trans.translations.all():
                     orm['cmsplugin_filer_image_translated.ImageTranslationRenamed'].objects.create(
                         trans_name=trans_trans.name,
                         trans_description=trans_trans.description,
