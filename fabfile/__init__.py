@@ -1,7 +1,9 @@
 # flake8: noqa
+import os
 from cmsplugin_filer_image_translated import settings
-from django.core.management import setup_environ
-setup_environ(settings)
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                      "cmsplugin_filer_image_translated.settings")
 
 from development_fabfile.fabfile import *
 from fabfile.local import *
