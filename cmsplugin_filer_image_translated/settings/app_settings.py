@@ -78,10 +78,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'cms.middleware.multilingual.MultilingualURLMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 DJANGO_APPS = [
@@ -97,8 +97,8 @@ DJANGO_APPS = [
 ]
 
 EXTERNAL_APPS = [
+    'djangocms_text_ckeditor',
     'cms',
-    'cms.plugins.text',
     'cmsplugin_filer_image',
     'mptt',
     'sekizai',
