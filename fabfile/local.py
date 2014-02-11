@@ -19,10 +19,6 @@ def dumpdata():
     local('python2.7 ./manage.py dumpdata --indent 4 --natural sites > cmsplugin_filer_image_translated/fixtures/bootstrap_sites.json')  # NOQA
     local('python2.7 ./manage.py dumpdata --indent 4 --natural cms.placeholder > cmsplugin_filer_image_translated/fixtures/bootstrap_cms.json')  # NOQA
     local('python2.7 ./manage.py dumpdata --indent 4 --natural cms --exclude cms.placeholder > cmsplugin_filer_image_translated/fixtures/bootstrap_cms2.json')  # NOQA
-    local('python2.7 ./manage.py dumpdata --indent 4 --natural text > cmsplugin_filer_image_translated/fixtures/bootstrap_cms_plugins_text.json')  # NOQA
-    local('python2.7 ./manage.py dumpdata --indent 4 --natural filer > cmsplugin_filer_image_translated/fixtures/bootstrap_filer.json')  # NOQA
-    local('python2.7 ./manage.py dumpdata --indent 4 --natural cmsplugin_filer_image > cmsplugin_filer_image_translated/fixtures/bootstrap_cmsplugin_filer_image.json')  # NOQA
-    local('python2.7 ./manage.py dumpdata --indent 4 --natural cmsplugin_filer_image_translated > cmsplugin_filer_image_translated/fixtures/bootstrap_cmsplugin_filer_image_translated.json')  # NOQA
 
 
 def loaddata():
@@ -30,10 +26,6 @@ def loaddata():
     local('python2.7 manage.py loaddata cmsplugin_filer_image_translated/fixtures/bootstrap_sites.json')  # NOPEP8
     local('python2.7 manage.py loaddata cmsplugin_filer_image_translated/fixtures/bootstrap_cms.json')  # NOPEP8
     local('python2.7 manage.py loaddata cmsplugin_filer_image_translated/fixtures/bootstrap_cms2.json')  # NOPEP8
-    local('python2.7 manage.py loaddata cmsplugin_filer_image_translated/fixtures/bootstrap_cms_plugins_text.json')  # NOPEP8
-    local('python2.7 manage.py loaddata cmsplugin_filer_image_translated/fixtures/bootstrap_filer.json')  # NOPEP8
-    local('python2.7 manage.py loaddata cmsplugin_filer_image_translated/fixtures/bootstrap_cmsplugin_filer_image.json')  # NOPEP8
-    local('python2.7 manage.py loaddata cmsplugin_filer_image_translated/fixtures/bootstrap_cmsplugin_filer_image_translated.json')  # NOPEP8
 
 
 def rebuild():
