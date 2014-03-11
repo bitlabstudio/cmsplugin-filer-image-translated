@@ -23,6 +23,11 @@ setup(
     url="https://github.com/bitmazk/cmsplugin-filer-image-translated",
     packages=find_packages(),
     include_package_data=True,
+    install_requires=[
+        'django',
+        'django-filer',
+        'django-hvad',
+    ],
     tests_require=[
         'fabric',
         'factory_boy',

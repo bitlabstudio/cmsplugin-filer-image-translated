@@ -1,7 +1,7 @@
 Cmsplugin Filer Image Translated
 ================================
 
-Adds simple-translation to the ``Image`` admin of ``django-filer``.
+Adds django-hvad translation to the ``Image`` admin of ``django-filer``.
 
 Installation
 ------------
@@ -10,8 +10,7 @@ Prerequisites:
 
 * Django
 * django-filer
-* simple-translation
-* TODO: Is that all?
+* django-hvad
 
 If you want to install the latest stable release from PyPi::
 
